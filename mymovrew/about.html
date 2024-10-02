@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+   <style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(135deg, #5d2a2b, #3e0a0a, #000000); /* Maroon, brown, and black gradient */
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+        margin: 0;
+        padding: 0;
+        color: white; /* White text color */
+    }
+    
+    @keyframes gradientAnimation {
+        0% { background-position: 0% 0%; }
+        50% { background-position: 100% 100%; }
+        100% { background-position: 0% 0%; }
+    }
+    
+    nav {
+        background: linear-gradient(90deg, #000000, #333333); /* Black to dark gray gradient */
+        width: 100%;
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    nav a {
+        color: #ffd700; /* Contrasting color for nav links */
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold; /* Bold text */
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    nav a:hover {
+        background-color: #555;
+        color: #fff; /* White text color on hover */
+        transform: scale(1.05); /* Slight scale up effect */
+    }
+    
+    .container {
+        padding: 20px;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    h1 {
+        text-align: center;
+        font-size: 36px;
+        color: white; /* White text color */
+        font-weight: bold; /* Bold text */
+    }
+    
+    .description {
+        font-size: 18px;
+        color: white; /* White text color */
+        margin-bottom: 20px;
+    }
+    
+    .contact {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #333; /* Dark text color for headers */
+        font-weight: bold; /* Bold text */
+    }
+    
+    .contact p {
+        font-size: 16px;
+        color: #666; /* Darker text color for paragraphs */
+        margin: 5px 0;
+    }
+    
+    .back-button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold; /* Bold text */
+    }
+    
+    .back-button:hover {
+        opacity: 0.9;
+    }
+</style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="logout.php" class="logout-button">Logout</a>
+    </nav>
+
+    <div class="container">
+        <h1>About Us</h1>
+        <div class="description">
+            <p>Welcome to Movie Reviews, your go-to destination for the latest and greatest in cinema! Our platform provides comprehensive reviews, ratings, and insights into a wide range of movies from various genres and languages. Our mission is to help you make informed decisions about what to watch next and to foster a community of movie enthusiasts who share their thoughts and opinions.</p>
+            <p>We strive to offer a user-friendly experience with detailed movie descriptions, high-quality reviews, and interactive features. Whether you are a casual movie-goer or a dedicated film buff, we have something for everyone!</p>
+        </div>
+        <div class="contact">
+            <h2>Contact Us</h2>
+            <p><strong>Address:</strong> Dr. S. Radhakrisnan, A S Marg, Andheri East, Mumbai, Maharashtra 400069</p>
+            <p><strong>Website:</strong> <a href="https://mvlucollege.in/" target="_blank">https://mvlucollege.in/</a></p>
+        </div>
+        <a href="home.html" class="back-button">Back to Home</a>
+    </div>
+</body>
+</html>

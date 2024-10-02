@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+ <style>
+/* Reset some default styles */
+body, h1, h2, h3, p, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set body background and font */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #fe0505, #770202, #2a0101); /* Soft gradient background */
+    color: #333; /* Darker text color */
+}
+
+
+
+/* Dashboard container styles */
+.dashboard-container {
+    max-width: 800px; /* Maximum width */
+    margin: 30px auto; /* Center align with extra margin */
+    padding: 30px; /* Padding */
+    background: linear-gradient(135deg, #ffffff, #f0f0f0); /* Light gradient for the container */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Softer shadow */
+}
+
+/* Headings styles */
+h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 25px; /* Increased margin below */
+    font-size: 28px; /* Increased font size */
+    color: #2c3e50; /* Darker blue for main heading */
+    font-weight: 700; /* Bold font */
+}
+
+h3 {
+    margin: 20px 0 10px; /* Margin around headings */
+    color: #3498db; /* Bright blue for subheadings */
+    font-weight: 600; /* Bolder font */
+}
+
+/* Form styles */
+form {
+    display: flex; /* Flexbox for layout */
+    flex-direction: column; /* Vertical layout */
+    margin-bottom: 25px; /* Increased spacing between forms */
+}
+
+/* Input styles */
+input[type="text"], input[type="password"], input[type="email"] {
+    padding: 12px; /* Increased padding for inputs */
+    margin-bottom: 15px; /* Increased margin below inputs */
+    border: 2px solid #3498db; /* Vibrant blue border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px; /* Larger font size */
+    transition: border 0.3s, box-shadow 0.3s; /* Transition for border and box shadow */
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+    border-color: #1abc9c; /* Teal border on focus */
+    box-shadow: 0 0 5px rgba(26, 188, 156, 0.5); /* Box shadow on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button styles */
+button {
+    padding: 12px; /* Padding for buttons */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    background: linear-gradient(135deg, #3498db, #1abc9c); /* Blue to teal gradient */
+    color: white; /* White text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+}
+
+button:hover {
+    background: linear-gradient(135deg, #2980b9, #16a085); /* Darker gradient on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* User list styles */
+#userList {
+    margin-top: 20px; /* Margin above user list */
+    padding: 15px; /* Increased padding */
+    background: linear-gradient(135deg, #ecf0f1, #bdc3c7); /* Light gradient background */
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #bdc3c7; /* Border color */
+}
+
+/* Individual user element styles */
+#userList div {
+    padding: 12px; /* Increased padding for each user element */
+    border-bottom: 1px solid #bdc3c7; /* Divider line */
+    transition: background-color 0.3s; /* Smooth transition for background */
+}
+
+#userList div:hover {
+    background-color: rgba(44, 62, 80, 0.1); /* Light hover effect with dark tint */
+}
+
+#userList div:last-child {
+    border-bottom: none; /* Remove last border */
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .dashboard-container {
+        width: 90%; /* Full width on smaller screens */
+    }
+}
+
+nav {
+    background: linear-gradient(90deg, #000000, #333333); /* Black to dark gray gradient */
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #555;
+    transform: scale(1.05); /* Slight scale up effect */
+}
+
+
+ </style>
+</head>
+<body>
+
+    <nav>
+        <a href="about.html">About Us</a>
+        <a href="logout.php" class="logout-button">Logout</a>
+
+    </nav>
+  <div class="dashboard-container">
+    <h2>Admin Dashboard - Manage Users</h2>
+    
+
+    <h3>Create User</h3>
+    <form id="createUserForm" method="POST">
+      <input type="text" name="username" id="create_username" placeholder="Username" required>
+      <input type="password" name="password" id="create_password" placeholder="Password" required>
+      <input type="email" name="email" id="email" placeholder="Email" required>
+      <button type="submit">Create User</button>
+    </form>
+
+    <h3>Update User</h3>
+    <form id="updateUserForm" method="POST">
+      <input type="text" name="username" id="update_username" placeholder="Username to Update" required>
+      <input type="password" name="new_password" id="update_password" placeholder="New Password">
+      <button type="submit">Update User</button>
+    </form>
+
+    <h3>Delete User</h3>
+    <form id="deleteUserForm" method="POST">
+      <input type="text" name="username" id="delete_username" placeholder="User ID to Delete" required>
+      <button type="submit">Delete User</button>
+    </form>
+
+    <h3>List of Users</h3>
+    <button id="fetchUsers">Fetch Users</button>
+    <div id="userList"></div>
+
+  </div>
+
+  <script>
+    // Create user
+    document.getElementById('createUserForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+      fetch('create-user.php', {
+        method: 'POST',
+        body: formData
+      }).then(response => response.json())
+        .then(data => {
+          alert(data.message);
+        }).catch(error => {
+          console.error('Error:', error);
+        });
+    });
+
+    // Update user
+    document.getElementById('updateUserForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+      fetch('update-user.php', {
+        method: 'POST',
+        body: formData
+      }).then(response => response.json())
+        .then(data => {
+          alert(data.message);
+        }).catch(error => {
+          console.error('Error:', error);
+        });
+    });
+
+    // Delete user
+    document.getElementById('deleteUserForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+      fetch('delete-user.php', {
+        method: 'POST',
+        body: formData
+      }).then(response => response.json())
+        .then(data => {
+          alert(data.message);
+        }).catch(error => {
+          console.error('Error:', error);
+        });
+    });
+
+    // Fetch and display users
+    document.getElementById('fetchUsers').addEventListener('click', function () {
+    fetch('list-users.php')
+        .then(response => response.json())
+        .then(data => {
+            const userList = document.getElementById('userList');
+            userList.innerHTML = ''; // Clear previous content
+            data.users.forEach(user => {
+                const userElement = document.createElement('div');
+                // Displaying ID, Username, Email, and Password without hashing
+                userElement.textContent = `ID: ${user.id}, Username: ${user.username}, Email: ${user.email}, Password: ${user.password}`;
+                userList.appendChild(userElement);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+});
+  </script>
+</body>
+</html>

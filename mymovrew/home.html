@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Reviews</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+   body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #5d2a2b, #7d3f3f, #a52a2a, #3e0a0a, #000000); /* Gradient from burgundy, maroon, red, brown, to black */
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    margin: 0;
+    padding: 0;
+    color: #fff; /* White text color for better contrast */
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+nav {
+    background: linear-gradient(90deg, #000000, #333333); /* Black to dark gray gradient */
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #555;
+    transform: scale(1.05); /* Slight scale up effect */
+}
+
+h1 {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 36px;
+    color: #fff; /* White text color for better contrast */
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.card {
+    background-color: #fff;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.03); /* Slight scale up effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 10px 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.card p {
+    font-size: 16px;
+    color: #666;
+    text-align: justify;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Initial shadow */
+    color: white; /* White text color */
+}
+
+.like-button {
+    background: linear-gradient(135deg, #5d2a2b, #7d3f3f); /* Burgundy gradient */
+}
+
+.review-button {
+    background: linear-gradient(135deg, #a52a2a, #3e0a0a); /* Red to brown gradient */
+}
+
+.like-button:hover, .review-button:hover {
+    background: linear-gradient(135deg, #7d3f3f, #5d2a2b); /* Darker gradient on hover */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+.like-button:active, .review-button:active {
+    transform: translateY(1px); /* Depress effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on click */
+}
+
+.review {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.review-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-card h4 {
+    margin: 0 0 5px;
+    font-size: 18px;
+    color: #333;
+}
+
+.review-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+</style>    
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="about.html">About Us</a>
+        <a href="logout.php" class="logout-button">Logout</a>
+    </nav>
+
+    <h1>Movie Reviews</h1>
+
+    <div class="container">
+        <!-- Movie Card 1 -->
+        <div class="card">
+            <img src="img/movie1.jpg" alt="Greatest Of All Time">
+            <h3>Greatest Of All Time</h3>
+            <p>The Greatest of All Time (GOAT) is a 2024 Indian Tamil-language science fiction action film directed by Venkat Prabhu, starring Vijay in dual roles.</p>
+            <div class="buttons">
+                <button class="like-button" onclick="likeMovie('Greatest Of All Time')">Like</button>
+                <button class="review-button" onclick="window.location.href='review.html?title=Greatest%20Of%20All%20Time&img=img/movie1.jpg&desc=The%20Greatest%20of%20All%20Time%20(GOAT)%20is%20a%202024%20Indian%20Tamil-language%20science%20fiction%20action%20film%20directed%20by%20Venkat%20Prabhu%2C%20starring%20Vijay%20in%20dual%20roles.'">Write a Review</button>
+            </div>
+        </div>
+
+        <!-- Movie Card 2 -->
+      <!-- Movie Card 1 -->
+<div class="card">
+    <img src="img/movie2.jpeg" alt="Maharaja">
+    <h3>Maharaja</h3>
+    <p>Maharaja is a 2024 Indian Tamil-language action thriller starring Vijay Sethupathi in the titular role, directed by Nithilan Swaminathan.</p>
+    <div class="buttons">
+        <button class="like-button" onclick="likeMovie('Maharaja')">Like</button>
+        <button class="review-button" onclick="window.location.href='review.html?title=Maharaja&img=img/movie2.jpeg&desc=Maharaja%20is%20a%202024%20Indian%20Tamil-language%20action%20thriller%20starring%20Vijay%20Sethupathi%20in%20the%20titular%20role%2C%20directed%20by%20Nithilan%20Swaminathan.'">Write a Review</button>
+    </div>
+</div>
+
+<!-- Movie Card 2 -->
+<div class="card">
+    <img src="img/movie3.jpg" alt="Rayaan">
+    <h3>Rayaan</h3>
+    <p>Rayaan is a 2024 Indian Tamil-language neo-noir action crime film, directed by Dhanush, starring Dhanush himself in the lead role.</p>
+    <div class="buttons">
+        <button class="like-button" onclick="likeMovie('Rayaan')">Like</button>
+        <button class="review-button" onclick="window.location.href='review.html?title=Rayaan&img=img/movie3.jpg&desc=Rayaan%20is%20a%202024%20Indian%20Tamil-language%20neo-noir%20action%20crime%20film%2C%20directed%20by%20Dhanush%2C%20starring%20Dhanush%20himself%20in%20the%20lead%20role.'">Write a Review</button>
+    </div>
+</div>
+
+<!-- Movie Card 3 -->
+<div class="card">
+    <img src="img/movie4.jpg" alt="Kalki 2898 AD">
+    <h3>Kalki 2898 AD</h3>
+    <p>Kalki 2898 AD is a 2024 Indian Telugu-language epic science fiction film starring Amitabh Bachchan, Prabhas, and Deepika Padukone, set in a post-apocalyptic world.</p>
+    <div class="buttons">
+        <button class="like-button" onclick="likeMovie('Kalki 2898 AD')">Like</button>
+        <button class="review-button" onclick="window.location.href='review.html?title=Kalki%202898%20AD&img=img/movie4.jpg&desc=Kalki%202898%20AD%20is%20a%202024%20Indian%20Telugu-language%20epic%20science%20fiction%20film%20starring%20Amitabh%20Bachchan%2C%20Prabhas%2C%20and%20Deepika%20Padukone%2C%20set%20in%20a%20post-apocalyptic%20world.'">Write a Review</button>
+    </div>
+</div>
+
+<!-- Movie Card 4 -->
+<div class="card">
+    <img src="img/movie5.jpg" alt="Thangalaan">
+    <h3>Thangalaan</h3>
+    <p>Thangalaan is a 2024 Indian Tamil-language action adventure film starring Vikram in five roles, set during the British Raj era.</p>
+    <div class="buttons">
+        <button class="like-button" onclick="likeMovie('Thangalaan')">Like</button>
+        <button class="review-button" onclick="window.location.href='review.html?title=Thangalaan&img=img/movie5.jpg&desc=Thangalaan%20is%20a%202024%20Indian%20Tamil-language%20action%20adventure%20film%20starring%20Vikram%20in%20five%20roles%2C%20set%20during%20the%20British%20Raj%20era.'">Write a Review</button>
+    </div>
+</div>
+
+<!-- Movie Card 5 -->
+<div class="card">
+    <img src="img/movie6.jpg" alt="Chithha">
+    <h3>Chithha</h3>
+    <p>Chithha is a 2023 Indian Tamil-language crime drama starring Siddharth, revolving around the relationship between a paternal uncle and his niece.</p>
+    <div class="buttons">
+        <button class="like-button" onclick="likeMovie('Chithha')">Like</button>
+        <button class="review-button" onclick="window.location.href='review.html?title=Chithha&img=img/movie6.jpg&desc=Chithha%20is%20a%202023%20Indian%20Tamil-language%20crime%20drama%20starring%20Siddharth%2C%20revolving%20around%20the%20relationship%20between%20a%20paternal%20uncle%20and%20his%20niece.'">Write a Review</button>
+    </div>
+</div>
+ </div>
+</div>
+<div id="reviews">
+    <h1>REVIEWS</h1>
+    <!-- Reviews will be loaded here -->
+</div>
+
+<script>
+    function likeMovie(movieTitle) {
+        // Map movie titles to their corresponding IDs
+        const movieIds = {
+            'Greatest Of All Time': 1,
+            'Maharaja': 2,
+            'Rayaan': 3,
+            'Kalki 2898 AD': 4,
+            'Thangalaan': 5,
+            'Chithha': 6
+        };
+
+        const movieId = movieIds[movieTitle];
+
+        if (!movieId) {
+            alert('Invalid movie title.');
+            return;
+        }
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "like_movie.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                alert(response.message);  // Show success or error message
+            }
+        };
+
+        xhr.send("movie_id=" + encodeURIComponent(movieId));  // Send movie_id in the request
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('fetch_reviews.php')
+            .then(response => response.json())
+            .then(data => {
+                const reviewsContainer = document.getElementById('reviews');
+                data.forEach(review => {
+                    const reviewDiv = document.createElement('div');
+                    reviewDiv.className = 'review-card';
+                    reviewDiv.innerHTML = `
+                        <h4>${review.movie_title} - by ${review.username}</h4>
+                        <p>${review.review}</p>
+                        <p><small>${new Date(review.created_at).toLocaleString()}</small></p>
+                    `;
+                    reviewsContainer.appendChild(reviewDiv);
+                });
+            })
+            .catch(error => console.error('Error fetching reviews:', error));
+    });
+</script>
+</body>
+</html>
+      
+</body>
+</html>

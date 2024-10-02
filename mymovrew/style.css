@@ -1,0 +1,76 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #5d2a2b, #b71c1c, #000000); /* Burgundy, red, and black gradient */
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.form-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  width: 280px; /* Shorter width */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container:hover {
+  transform: scale(1.05); /* Slightly scale up on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333; /* Darker text color */
+}
+
+input {
+  display: block;
+  width: calc(100% - 20px); /* Slightly shorter width */
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus {
+  border-color: #28a745; /* Highlight border color */
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.3); /* Add subtle glow */
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #b71c1c; /* Red background color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Initial shadow */
+}
+
+button:hover {
+  background-color: #a10d0d; /* Darker red on hover */
+  transform: translateY(-4px); /* Lift effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+button:active {
+  transform: translateY(2px); /* Depress effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on click */
+}

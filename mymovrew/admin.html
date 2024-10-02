@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+    /* Apply a full-screen linear gradient background */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #3a6073, #3a6073, #f4f4f4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for the login form */
+.login-container {
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    width: 350px;
+    text-align: center; /* Center text in the container */
+}
+
+/* Heading styles */
+h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 24px; /* Increased font size for better visibility */
+}
+
+/* Input styles */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 12px; /* Slightly increased padding for comfort */
+    margin: 10px 0;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    font-size: 16px; /* Increased font size */
+    transition: border 0.3s; /* Smooth border transition */
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #1abc9c; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button styles */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #3498db, #1abc9c);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Added transform for button press effect */
+}
+
+button:hover {
+    background: linear-gradient(135deg, #2980b9, #16a085);
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+button:active {
+    transform: scale(0.98); /* Slightly shrink on click */
+}
+
+/* Error message styles */
+.error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <form id="adminLoginForm">
+            <input type="text" placeholder="Username" id="username" required>
+            <input type="password" placeholder="Password" id="password" required>
+            <button type="submit">Login</button>
+            <button type="button" onclick="window.location.href='login.html'">User Login</button>
+            <div class="error" id="error-message"></div>
+        </form>
+    </div>
+
+<script>
+    // Predefined credentials
+    const adminCredentials = {
+        username: "admin", // predefined username
+        password: "2349" // predefined password
+    };
+
+    document.getElementById("adminLoginForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+        
+        // Get the input values
+        const usernameInput = document.getElementById("username").value;
+        const passwordInput = document.getElementById("password").value;
+
+        // Validate credentials
+        if (usernameInput === adminCredentials.username && passwordInput === adminCredentials.password) {
+            // Redirect to admin dashboard or another page
+            window.location.href = "admin-dashboard.html"; // Change to your admin dashboard page
+        } else {
+            // Show error message
+            document.getElementById("error-message").textContent = "Invalid username or password.";
+        }
+    });
+</script>
+
+</body>
+</html>
